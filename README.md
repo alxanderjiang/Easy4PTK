@@ -42,5 +42,8 @@ Some problems may happen when install or use numba because of laking the library
 ```bash
 pip install scipy
 ```
+## Base Mode: SSR Generation
+The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-space representation (SSR). Coordinate constraints are supported.
 
-
+## Rove Mode: SSR based PPP-RTK
+The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR from base mode or other methods. 
