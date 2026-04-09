@@ -80,5 +80,19 @@ The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR
    ```
    For users of regional atmospheric products, SSR information can also be constructed by themselves according to the solution logs format of Easy4PNT. the values of keys: "GPS_week", "GPS_sec" and "STEC" are necessary while  "std_STEC" and "azel" are optional. At the same time, the update frequency of SSR needs to be set in order to quickly find the target time SSR as follows:
    ```yaml
-   t_interval: 30    #Take WAB2-ZIM2 baseline for example
+   t_interval: 30    #Take 30 seconds for example, expressed in seconds.
    ```
+3. Separately set the switch used for ionospheric and tropospheric corrections as follows:
+   ```yaml
+   Qi_scale: 1.0                  #基线质量衰减因子(地理坐标每度衰减, 单位:m, 若为-1, 则不对电离层进行约束)
+   Qt_scale: 1.0                  #基线对流层质量衰减因子(每单位基线长度衰减, 单位:m, 若为-1, 则不对对流层进行约束)
+   ```
+   If the scale factors are not set to −1, they represent the degree of attenuation of SSR with geographical latitude in the baseline direction. For example, 1.0 indicates that the SSR constraint variance is amplified by 1.0 m for each geographical latitude.
+4. The ionospheric SSR relaxation factor is set to represent the effect of adding an additive constraint noise to the ionospheric SSR to weaken the quality of the SSR product, and the unit is TECU:
+   ```yaml
+   Qi_init:  2.0                  #初始化质量衰减因子(初始化外加质量松弛因子, 单位:TECU)
+   ```
+5. The minimum elevation angle used by the ionospheric SSR is set, expressed in degrees, and the satellite with the current station below the elevation angle will not be constrained by the ionospheric state:
+   ```yaml
+   Qi_ele_threshold: 10           #电离层SSR应用最小高度角(单位:deg)
+   ```   
