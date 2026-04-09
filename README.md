@@ -48,14 +48,22 @@ The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-
    ```yaml
    sta_mode: Base
    ```
-2. Usually, the base mode does not need reinitialization so that teh 'reinitial_sec' is recommended to set as:
+2. Usually, the base mode does not need reinitialization so that the 'reinitial_sec' is recommended to set as:
    ```yaml
    reinitial_sec: 0
    ```
-3. If coordinate constraint is needed, the 'STA_P' and 'STA_Q' is needed to set as:
+   Also, the base mode is usually set as static:
+   ```yaml
+   dy_mode: 'static'
+   ```    
+4. If coordinate constraint is needed, the 'STA_P' and 'STA_Q' is needed to set as:
    ```yaml
    STA_P: [4331299.588262134, 567537.6703955207, 4633133.899276633]   # WGS-84, take ZIM2 for example
-   STA_Q: [0.01, 0.01, 0.01]                                          # The constraint variance of initial coordinate
+   STA_Q: [0.01, 0.01, 0.01]                                          # The constraint variances (X,Y,Z) of initial coordinate, expressed in meter.
+   ```
+5. If coordinate constraint is not needed, the STA_P shold be set as:
+   ```yaml
+   STA_P: [0, 0, 0]                                                   # No coordinate constraint
    ```
 
 ## Rove Mode: SSR based PPP-RTK
