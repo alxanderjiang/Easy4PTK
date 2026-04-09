@@ -99,3 +99,17 @@ The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR
 Attention: No matter AR or not, the OSB_YES configuration shold be set as 1 if ionospheric SSR is used. The PPP-RTK results of WAB2-ZIM2 baseline in DOY 154, 2025 is shown in Figure as follows.
 
 <img src=./images/WAB2-ZIM2.png>
+
+## Running from the python source code to get a singgle solution
+1. Get the sample results by running the main function of src/ptk_yaml.py or running the ptk_yaml.ipynb in the Jupyter Notebook.
+2. After processing, you will get a solution log named as "zim21540.25o.out.npy" in format of numpy array in the folder: ppprtk_result.
+3. Running the nav_result.ipynb, you will get pictures of PPP-RTK results and products as shown in the above figures.
+
+## Running the multiprocessing script to get a folder's solutions
+Easy4PTK natively supports multi-threaded processing, which can significantly speed up the speed of the entire network solution to weaken the time-consuming enhancement caused by Python computing performance.
+1. Get the sample multi-processing by running the multiprocess.py. The "CORE_NUM" shold be set according to your devices.
+2. The "PATH" shold be set according to your yaml files' folder.
+3. The multiprocessing script "multiprocess.py" will automatically processes all configuration files under PATH.
+
+## Contact Authors
+All the libaries and softwares in this toolbox are coded by Zhuojun Jiang, Zeen Yang, Wenjing Huang, Chuang Qian from Wuhan University of Technology. Any commends or bug reports are welcomed by sending email to zhuojun_jiang@whut.edu.cn. 
