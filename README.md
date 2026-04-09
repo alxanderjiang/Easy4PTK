@@ -36,7 +36,7 @@ pip install numba
 pip install Pyyaml
 ```
 
-numpy and tqdm is used in the core codes while ipykernel is necessary to run Jupyter Notebook tutorials. numba is used to accelerate the computation (this can be ignored by change all the "numba_inv" function to simple "inv()" function). Unlike the Easy4PPP, Easy4PTK does not support running from a __main__ function with variables definition, only Yaml Configuration file is supported.
+  numpy and tqdm is used in the core codes while ipykernel is necessary to run Jupyter Notebook tutorials. numba is used to accelerate the computation (this can be ignored by change all the "numba_inv" function to simple "inv()" function). Unlike the Easy4PPP, Easy4PTK does not support running from a __main__ function with variables definition, only Yaml Configuration file is supported.
 Some problems may happen when install or use numba because of laking the library scipy, please install it by running the following commends:
 
 ```bash
