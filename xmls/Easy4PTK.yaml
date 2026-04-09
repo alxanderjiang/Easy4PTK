@@ -1,0 +1,143 @@
+## Easy4PTK配置文件
+## Easy4PTK: 纯Python编译的PPP-RTK工具箱
+## Configure File of Easy4PPP: An Easily Applied and Recompiled Multi-platform 
+## Precise Point Positioning-Real Time Kinematic Toolbox Coded in Python
+
+## 作者: 蒋卓君, 杨泽恩, 黄文静, 钱闯, 武汉理工大学
+## Copyright 2025-, by Zhuojun Jiang, Zeen Yang, Wenjing Huang, Chuang Qian, Wuhan University of Technology, China
+
+## 观测文件
+## observation file path
+obs_file: "data/OBS/zim21540.25o"
+
+## 多系统标识符 (G: GPS C: BDS E: GAL)
+## System Choices (G for GPS, C for BDS, E for GAL)
+sys_indexs: ['G','C','E']
+
+## 多系统频点选择 (以RINEX v3.04协议为准)
+## Multi-GNSS Code&Frequency Choices (RINEX version 3.04 format)
+
+obs_type: [
+           ['C1C','L1C','D1C','S1C','C2W','L2W','D2W','S2W'],
+           ['C2I','L2I','D2I','S2I','C6I','L6I','D6I','S6I'],
+           ['C1C','L1C','D1C','S1C','C5Q','L5Q','D5Q','S5Q']
+           ]
+
+freqs: [
+        [1575.42E+6, 1227.60E+6],
+        [1561.098E+6,1268.52E+6],
+        [1575.42E+6, 1176.45E+6]
+        ]
+
+## 精密产品文件路径
+## Precise Products Path
+SP3_file: "data/Peph_clk/20251540/cnt23692.sp3"               
+CLK_file: "data/Peph_clk/20251540/cnt23692.clk"                
+ATX_file: "data/ATX/igs20.atx"                               
+
+## 导航结果输出文件路径
+## Navigation Results Path
+out_path: "ppprtk_result"    
+
+## 自定义电离层模型参数 (当前仅支持八参数Klobuchar模型)
+## Ion Model Parameters Set (Klobuchar only in current version)
+ion_param: []
+
+# 广播星历文件路径
+# Broadcast Navigation File Path
+BRDC_file: "data/brdc/brdc1540.25p"
+
+# DCB修正选项 (0: 不改正DCB 1:改正DCB)
+# DCB Correction (0: off 1:on) 
+dcb_correction: 0
+
+# DCB产品来源 (CODE; CAS)
+# DCB Products (CODE or CAS)
+dcb_products: 'CAS'
+
+# DCB产品文件路径(CAS产品同时包括频内和频间偏差)
+# DCB File Path (If 'CAS', dcb_file_1 and dcb_file_2 not available)
+dcb_file_0: "data/DCB/CAS0MGXRAP_20251540000_01D_01D_DCB.BSX"
+dcb_file_1: ""
+dcb_file_2: ""
+
+# 解算时间段
+# The solution time period 
+obs_start: 480                             #解算初始时刻索引(the beginning epoch of solution)
+obs_epoch: 2400                            #解算总历元数量  (the ending epoch of solution, 0 for total number)
+
+# 最大容忍失锁阈值时间 (单位: s, 用于电离层、模糊度状态重置)
+# The outlier ages of ionospheric delay and ambiguity, expressed in second.
+out_age: 31                                     
+
+# PPP动态模式配置, 支持static, dynamic
+# Dynamic mode, 'static' or 'dynamic'
+dy_mode: 'dynamic'                                
+
+# 卫星截止高度角
+# The threshold of satellite elevation
+el_threthod: 10.0                                
+
+# 先验残差阈值 (单位: m)
+# The threshold of pre-fit residuals, expressed in meters
+ex_threshold_v: 30                               
+
+# 后验残差阈值
+# The threshold of post-fit residuals, expressed as the multiples of noise residuals (sigma)
+ex_threshold_v_sigma: 4
+
+# Mw组合周跳检验阈值 (单位: 周)
+# The threshold of phase jump detation for Mw combinations, expressed in cycle
+Mw_threshold: 2.5                                
+
+# GF组合周跳检验阈值 (单位: m)
+# The threshold of phase jump detation for Mw combinations, expressed in meters
+GF_threshold: 0.15                               
+
+# 排除卫星PRN码 (不包括因精密星历和钟差基准而排除的卫星)
+# The PRNs of outiler satellites                                
+sat_out: ['C01','C02','C03','C04','C05','C06','C07','C08',
+  'C09','C10','C11','C12','C13','C14','C15','C16','C17','C18']
+#sat_out: ['C01','C02','C03','C04','C05']
+#sat_out: []
+
+
+# 以下为Easy4PTK新增配置, 请注意, Easy4PTK兼容旧版Easy4PPP配置项
+# The added configurations of Easy4PTK are as follows. Previous version of configuration files of Easy4PPP
+# is also support in Easy4PTK
+
+# 模糊度固定配置
+# The configuration of AR
+
+# AR switch (on:1, off:0)
+AMB_FIX: 0                
+# The path of OSB products 
+OSB_path: "data/Peph_clk/20251540/cnt23692.bia"
+# The threshold of ratio test
+ratio_threshold: 2.0
+# The threshold of fractial part of amb
+amb_float_threshold: 0.25
+# The threshold of sigma of amb   
+P_float_threshold: 2.25
+# The minium number of AR amb
+min_AR_num: 3
+
+# 额外配置: OSB和PCO校正 (可以单独配置OSB校正)
+OSB_YES: 1
+PCO_YES: 1
+
+# PPP-RTK配置
+sta_mode: Rove
+reinitial_sec: 3600
+
+#基准站坐标约束
+STA_P: [-2392741.785691006, 5397562.816114749, 2404757.572719147]
+STA_Q: [0.01, 0.01, 0.01]
+
+#流动站SSR改正信息配置
+rtk_info_mat : 'data/rtk_info/wab21540.25o.out.npy'
+t_interval: 30                 #PPP-RTK SSR更新频度(单位:s)
+Qi_init:  2.0                  #初始化质量衰减因子(初始化外加质量松弛因子, 单位:TECU)
+Qi_scale: 1.0                  #基线质量衰减因子(地理坐标每度衰减, 单位:m, 若为-1, 则不对电离层进行约束)
+Qi_ele_threshold: 10           #电离层SSR应用最小高度角(单位:deg)
+Qt_scale: -1                   #基线对流层质量衰减因子(每单位基线长度衰减, 单位:m, 若为-1, 则不对对流层进行约束)
