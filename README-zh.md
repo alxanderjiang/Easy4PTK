@@ -1,8 +1,8 @@
-# Easy4PTK
+# Easy4PTK: 纯Python编译的多系统PPP-RTK工具包.
 
 [[中]](./README-zh.md) &ensp; [[EN]](./README.md)
 
-纯Python编译的多系统PPP-RTK工具包.
+
 
 Easy4PTK是Easy4PNT工具箱的组成模块，工具箱的其他组成模块在这里给出 (单击可跳转对应工具箱目录)：[[Easy4SPP]](https://github.com/alxanderjiang/Easy4SPP), [[Easy4RTK]](https://github.com/alxanderjiang/Easy4RTK), [[Easy4PPP]](https://github.com/alxanderjiang/Easy4PPP), [[Easy4B2b]](https://github.com/alxanderjiang/Easy4B2b).
 
