@@ -7,7 +7,10 @@ Easy4PTK: An easily ported Multi-GNSS PPP-RTK Toolbox coded in Python.
 
 This is a part of open-source toolbox Easy4PNT. Other toolboxs of Easy4PNT is listed here (clicked to jump to the target): Easy4SPP, Easy4RTK, [[Easy4PPP]](https://github.com/alxanderjiang/Easy4PPP), Easy4B2b.
 
-# Quick Start
+## Quick Start
+1. We provide a set of example data and a quick-start jupyter notebook tutorial "ptk_yaml.ipynb". Make sure that you have sucessufully installed the Python as well as the numpy, ipykernel and numba in your environment.
+2. Due to the file size limitation of github (no more than 25MB for a file), we compress the "data" and "nav_result" folders into zip files and uploaded them to the Cloud Drive ([[Google Driver]](https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link) or [[Lanzou Driver]](https://wwbwg.lanzouv.com/b01bjc4y2f)). In order to try the provided example of GCE PPP-RTK precise point position (PPP), you need first download and unzip the "data.zip" into the "data" folder in the project path. The example results for visualization is stored in 'nav_result.zip'. The above zip files are necessary to run Easy4PTK. 
+3. After unzipping the "data" folder, run all the blocks of "ppp.ipynb", you all get an Easy4PPP solution log file in form of ".npy".
+4. We provided an example of visualizing the solution log file. Run all the blocks of nav_result.ipynb, you can get figures about the PPP convergence curve, the STEC scatter and the residuls scatter plot.
 
-[[Google Driver]](https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link)
 
