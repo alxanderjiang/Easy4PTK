@@ -20,12 +20,14 @@ git clone https://github.com/alxanderjiang/Easy4PTK.git
 ```
 2. Download the "data.zip" and "nav_result.zip" files from Google Drive ([[https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link]](https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link)) or LanZou Drive ([[https://wwbwg.lanzouv.com/b01bjc4y2f]](https://wwbwg.lanzouv.com/b01bjc4y2f)) . 
 3. Unzip the sample data folders: data.zip and nav_result.zip to the same path of Easy4PPP. If linux but no GUI, please run the following commends:
+
 ```bash
 cd Easy4PTK
 unzip data.zip
 unzip nav_result
 ```
 3. Ensure that the numpy, tqdm, ipykernel, numba and Pyyaml is available in your Python environment. If not, please run the following commends to install:
+
 ```bash
 pip install numpy
 pip install tqdm
@@ -33,8 +35,10 @@ pip install ipykernel
 pip install numba
 pip install Pyyaml
 ```
+
 numpy and tqdm is used in the core codes while ipykernel is necessary to run Jupyter Notebook tutorials. Unlike the Easy4PPP, Easy4PTK does not support running from a __main__ function with variables definition, only Yaml Configuration file is supported.
 Some problems may happen when install or use numba because of laking the library scipy, please install it by running the following commends:
+
 ```bash
 pip install scipy
 ```
