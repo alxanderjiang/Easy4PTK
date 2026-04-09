@@ -67,6 +67,6 @@ The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-
    ```
 Figure 
 
-<img src="./images/BaseMode_Products.png", width = 0.6>
+<img src=./images/BaseMode_Products.png, width = 0.6>
 ## Rove Mode: SSR based PPP-RTK
 The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR from base mode or other methods. 
