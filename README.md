@@ -48,7 +48,11 @@ The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-
    ```yaml
    sta_mode: Base
    ```
-2. 
+2. Usually, the base mode does not need reinitialization so that teh 'reinitial_sec' is recommended to set as:
+   ```yaml
+   reinitial_sec: 0
+   ```
+
 
 ## Rove Mode: SSR based PPP-RTK
 The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR from base mode or other methods. 
