@@ -112,4 +112,4 @@ Easy4PTK natively supports multi-threaded processing, which can significantly sp
 3. The multiprocessing script "multiprocess.py" will automatically processes all configuration files under PATH.
 
 ## Contact Authors
-All the libaries and softwares in this toolbox are coded by Zhuojun Jiang, Zeen Yang, Wenjing Huang, Chuang Qian from Wuhan University of Technology. Any commends or bug reports are welcomed by sending email to zhuojun_jiang@whut.edu.cn. 
+All the libaries and softwares in this toolbox are coded by Zhuojun Jiang, Zeen Yang, Wenjing Huang, Chuang Qian from Wuhan University of Technology. Any commends or bug reports are welcomed by sending email to 1162110359@qq.com. 
