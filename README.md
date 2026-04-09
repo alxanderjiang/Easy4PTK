@@ -44,6 +44,11 @@ pip install scipy
 ```
 ## Base Mode: SSR Generation
 The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-space representation (SSR). Coordinate constraints are supported.
+1. Change the 'sta_mode' of configuration file into 'Base' to set base mode of Easy4PTK as follows:
+   ```yaml
+   sta_mode: Base
+   ```
+2. 
 
 ## Rove Mode: SSR based PPP-RTK
 The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR from base mode or other methods. 
