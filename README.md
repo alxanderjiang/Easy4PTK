@@ -13,7 +13,7 @@ This is a part of open-source toolbox Easy4PNT. Other toolboxs of Easy4PNT is li
 3. After unzipping the "data" folder, run all the blocks of "ptk_yaml.ipynb", you all get an Easy4PNT solution log file in form of ".npy". The running script is following the configuration of xmls/Easy4PTK.yaml. Use WAB2 static PPP products as constraints, get ZIM2 PPP-RTK kinematic solutions, reinitialize per 1 hour. The details of configuration is shown in xmls/Easy4PTK.yaml.
 4. We provided an example of visualizing the solution log file. Run all the blocks of nav_result.ipynb, you can get figures about the PPP-RTK convergence curve, the STEC scatter and the residuls scatter plot.
 
-5. ## Downloading and preperations
+## Downloading and preperations
 1. Download the **zip pakeage directly** or using git clone by running the following commend:
 ```bash
 git clone https://github.com/alxanderjiang/Easy4PTK.git
