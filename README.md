@@ -96,4 +96,6 @@ The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR
    ```yaml
    Qi_ele_threshold: 10           #电离层SSR应用最小高度角(单位:deg)
    ```
-Attention: No matter AR or not, the OSB_YES configuration shold be set as 1 if ionospheric SSR is used.
+Attention: No matter AR or not, the OSB_YES configuration shold be set as 1 if ionospheric SSR is used. The PPP-RTK results of WAB2-ZIM2 baseline in DOY 154, 2025 is shown in Figure as follows.
+
+<img src=./images/BaseMode_Products.png>
