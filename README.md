@@ -65,7 +65,7 @@ The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-
    ```yaml
    STA_P: [0, 0, 0]                                                   # No coordinate constraint
    ```
-Figure 1 express the generated SSR by base mode of Easy4PTK, the test base station is WAB2.
+Figure 1 express the generated SSR by base mode of Easy4PTK, the test base station is WAB2, coordinate constraint is shut off.
 
 <img src=./images/BaseMode_Products.png>
 <center>Figure 1</center> 
