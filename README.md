@@ -95,4 +95,5 @@ The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR
 5. The minimum elevation angle used by the ionospheric SSR is set, expressed in degrees, and the satellite with the current station below the elevation angle will not be constrained by the ionospheric state:
    ```yaml
    Qi_ele_threshold: 10           #电离层SSR应用最小高度角(单位:deg)
-   ```   
+   ```
+Attention: No matter AR or not, the OSB_YES configuration shold be set as 1 if ionospheric SSR is used.
