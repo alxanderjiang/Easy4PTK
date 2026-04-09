@@ -78,3 +78,7 @@ The rove mode of Easy4PTK is used to ultilize PPP-RTK based on the generated SSR
    ```yaml
    rtk_info_mat : 'data/rtk_info/wab21540.25o.out.npy'    #Take WAB2-ZIM2 baseline for example
    ```
+   For users of regional atmospheric products, SSR information can also be constructed by themselves according to the solution logs format of Easy4PNT. the values of keys: "GPS_week", "GPS_sec" and "STEC" are necessary while  "std_STEC" and "azel" are optional. At the same time, the update frequency of SSR needs to be set in order to quickly find the target time SSR as follows:
+   ```yaml
+   t_interval: 30    #Take WAB2-ZIM2 baseline for example
+   ```
