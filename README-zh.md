@@ -38,30 +38,30 @@ pip install Pyyaml
 ```bash
 pip install scipy
 ```
-## Base Mode Configuration: SSR Generation
-The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-space representation (SSR). Coordinate constraint are supported.
-1. Change the 'sta_mode' of configuration file into 'Base' to set base mode of Easy4PTK as follows:
+## 基准站模式配置: 基于单站观测的状态域改正数生产
+Easy4PTK的基准站模式(Base)用于生成电离层和对流层的状态域改正数(SSR), 工具包支持基准站坐标约束。
+1. 将配置文件的'sta_mode'更改为'Base'以设置Easy4PTK的基准站模式：
    ```yaml
    sta_mode: Base
    ```
-2. Usually, the base mode does not need reinitialization so that the 'reinitial_sec' is recommended to set as:
+2. 通常情况下，Base模式不需要重新初始化, 因此reinitial_sec建议设置为0(即每历元均不重新初始化):
    ```yaml
    reinitial_sec: 0
    ```
-   Also, the base mode is usually set as static:
+   同样, Base模式一般静态求解, 配置如下:
    ```yaml
    dy_mode: 'static'
    ```    
-4. If coordinate constraint is needed, the 'STA_P' and 'STA_Q' is needed to set as:
+4. 如果需要坐标约束，则需要设置基准站坐标'STA_P'和基准站坐标约束方差'STA_Q':
    ```yaml
    STA_P: [4331299.588262134, 567537.6703955207, 4633133.899276633]   # WGS-84, take ZIM2 for example
    STA_Q: [0.01, 0.01, 0.01]                                          # The constraint variances (X,Y,Z) of initial coordinate, expressed in meter.
    ```
-5. If coordinate constraint is not needed, the STA_P shold be set as:
+5. 如果不需要基准站坐标约束, 将STA_P设置为0或直接使用直接求解的sta_mode: None模式:
    ```yaml
    STA_P: [0, 0, 0]                                                   # No coordinate constraint
    ```
-The generated SSR by base mode of Easy4PTK is expressed as follows, the test base station is WAB2, coordinate constraint is shut off:
+Easy4PTK的基站模式生成的SSR表示如下，测试基准站为WAB2，坐标约束关闭: 
 <img src=./images/BaseMode_Products.png>
 
 ## Rove Mode Configuration: SSR based PPP-RTK
