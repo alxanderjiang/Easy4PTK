@@ -4,26 +4,26 @@
 
 Easy4PTK是Easy4PNT工具箱的组成模块，工具箱的其他组成模块在这里给出 (单击可跳转对应工具箱目录)：[[Easy4SPP]](https://github.com/alxanderjiang/Easy4SPP), [[Easy4RTK]](https://github.com/alxanderjiang/Easy4RTK), [[Easy4PPP]](https://github.com/alxanderjiang/Easy4PPP), [[Easy4B2b]](https://github.com/alxanderjiang/Easy4B2b).
 
-## Quick Start
-1. We provide a set of example data and a quick-start jupyter notebook tutorial "ptk_yaml.ipynb". Make sure that you have sucessufully installed the Python as well as the numpy (for matrix computation), ipykernel (for running the Jupyter Notebook), numba (for accelerating Python computation) and Pyyaml (for configuration files reading) in your environment.
-2. Due to the file size limitation of github (no more than 25MB for a file), we compress the "data" and "nav_result" folders into zip files and uploaded them to the Cloud Drive ([[Google Driver]](https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link) or [[Lanzou Driver]](https://wwbwg.lanzouv.com/b01bjc4y2f)). In order to try the provided example of GCE PPP-RTK solutions, you need first download and unzip the "data.zip" into the "data" folder in the project path. The example results for visualization is stored in 'nav_result.zip'. The above zip files are necessary to run Easy4PTK. 
-4. After unzipping the "data" folder, run all the blocks of "ptk_yaml.ipynb", you all get an Easy4PNT solution log file in form of ".npy". The running script is following the configuration of xmls/Easy4PTK.yaml. Use WAB2 static PPP products as constraints, get ZIM2 PPP-RTK kinematic solutions, reinitialize per 1 hour. The details of configuration is shown in xmls/Easy4PTK.yaml.
-5. We provided an example of visualizing the solution log file. Run all the blocks of nav_result.ipynb, you can get figures about the PPP-RTK convergence curve, the STEC scatter and the residuls scatter plot.
+## 快速开始
+1. 工具包提供一个示例jupyter notebook教程用于快速演示工具包进行实时动态精密单点定位(PPP-RTK)解算, 在使用工具包之前, 确保你已经在环境中正确安装Python发行版本和numpy(矩阵计算), ipykernel(Jupyter notebook运行插件), numba(矩阵求逆加速)和Pyyaml(配置文件读取)库;
+2. 由于Github对单个文件上传大小的限制(小于25MB), 工具包将示例数据文件夹"data"和示例结果文件夹"nav_result"压缩为zip文件并上传至网盘([[谷歌网盘]](https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link), [[蓝奏云盘]](https://wwbwg.lanzouv.com/b01bjc4y2f)). 为了进行对示例数据的PPP-RTK求解, 用户需要首先下载上述网盘链接内的"data.zip"并解压到项目根目录下。示例数据的解算结果以numpy字典数组格式存储到"nav_result.zip"中，可用于直接对示例数据的结果进行可视化;
+3. 解压data文件夹后，运行ptk_yaml.ipynb的所有单元格, 用户会在nav_result文件夹(确保有这样一个文件夹)内得到numpy字典数组格式的解算结果。Easy4PTK将以xmls/Easy4PTK.yaml的配置进行解算，并输出给用户以WAB2静态解为大气SSR, ZIM2的动态PPP-RTK结果, 每小时重收敛一次。更多配置细节在配置文件中详细呈现;
+4. 我们提供一个对解算结果二进制文件进行可视化的示例jupyter notebook文件, 执行nav_result.ipynb的所有单元格, 用户会获取PPP-RTK收敛曲线(定位误差时序曲线), ZTD时序, STEC散点和码残差等信息的可视化。
 
-## Downloading and preperations
-1. Download the **zip pakeage directly** or using git clone by running the following commend:
+## 下载与环境准备
+1. 直接从github主页下载工具包的压缩文件“Easy4PPP-main.zip”并解压即可。如果您使用git clone工具，请运行如下命令将Easy4PTK克隆到本地:
 ```bash
 git clone https://github.com/alxanderjiang/Easy4PTK.git
 ```
-2. Download the "data.zip" and "nav_result.zip" files from Google Drive ([[https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link]](https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link)) or LanZou Drive ([[https://wwbwg.lanzouv.com/b01bjc4y2f]](https://wwbwg.lanzouv.com/b01bjc4y2f)) . 
-3. Unzip the sample data folders: data.zip and nav_result.zip to the same path of Easy4PTK. If linux but no GUI, please run the following commends:
+2. 从谷歌云盘([[https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link]](https://drive.google.com/drive/folders/1tKkHaTQvNHncI_X6PQJJ7abXlAo0ryBO?usp=drive_link))或蓝奏云盘([[https://wwbwg.lanzouv.com/b01bjc4y2f]](https://wwbwg.lanzouv.com/b01bjc4y2f))中下载"data.zip"和"nav_result.zip" 压缩包;
+3. 解压示例数据文件夹"data.zip"和示例数据结果文件夹"nav_result.zip"至Easy4PTK工具包根目录, 如果是非发行版Linux窗口系统用户(例如Linux服务器), 请在命令行中运行如下命令以解压:
 
 ```bash
 cd Easy4PTK
 unzip data.zip
 unzip nav_result
 ```
-3. Ensure that the numpy, tqdm, ipykernel, numba and Pyyaml is available in your Python environment. If not, please run the following commends to install:
+3. 确保 numpy、tqdm、ipykernel、numba 和 Pyyaml 在您的 Python 环境中可用。如果没有，请运行以下命令进行安装:
 
 ```bash
 pip install numpy
@@ -33,8 +33,7 @@ pip install numba
 pip install Pyyaml
 ```
 
-  numpy and tqdm is used in the core codes while ipykernel is necessary to run Jupyter Notebook tutorials. numba is used to accelerate the computation (this can be ignored by change all the "numba_inv" function to simple "inv()" function). Unlike the Easy4PPP, Easy4PTK does not support running from a __main__ function with variables definition, only Yaml Configuration file is supported.
-Some problems may happen when install or use numba because of laking the library scipy, please install it by running the following commends:
+  numpy和tq​​dm用于支撑核心代码, ipykernel用于支撑Jupyter Notebook的运行。numba用于加速计算(可以通过将所有“numba_inv”函数更改为简单的“inv()”函数来忽略这一运算库)。与Easy4PPP不同，Easy4PTK不支持从具有变量定义的 __main__ 函数运行，仅支持从Yaml配置文件中读取配置进行解算。在安装或使用 numba 时可能会由于缺少scipy库而报错，请运行以下命令进行安装:
 
 ```bash
 pip install scipy
