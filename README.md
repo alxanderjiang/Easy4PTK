@@ -25,7 +25,7 @@ cd Easy4PTK
 unzip data.zip
 unzip nav_result
 ```
-3. Ensure that the numpy, tqdm, ipykernel, numba and Pyyaml is available in your Python environment. If not, please run the following commends to install:
+4. Ensure that the numpy, tqdm, ipykernel, numba and Pyyaml is available in your Python environment. If not, please run the following commends to install:
 
 ```bash
 pip install numpy
@@ -55,12 +55,12 @@ The base mode of Easy4PTK is used to generate ionospheric and tropspheric state-
    ```yaml
    dy_mode: 'static'
    ```    
-4. If coordinate constraint is needed, the 'STA_P' and 'STA_Q' is needed to set as:
+3. If coordinate constraint is needed, the 'STA_P' and 'STA_Q' is needed to set as:
    ```yaml
    STA_P: [4331299.588262134, 567537.6703955207, 4633133.899276633]   # WGS-84, take ZIM2 for example
    STA_Q: [0.01, 0.01, 0.01]                                          # The constraint variances (X,Y,Z) of initial coordinate, expressed in meter.
    ```
-5. If coordinate constraint is not needed, the STA_P shold be set as:
+4. If coordinate constraint is not needed, the STA_P shold be set as:
    ```yaml
    STA_P: [0, 0, 0]                                                   # No coordinate constraint
    ```
